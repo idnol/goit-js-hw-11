@@ -8,10 +8,23 @@
     <link rel="stylesheet" href="css/common.css" />
   </head>
   <body>
-    <ul>
-      <li><a href="01-gallery.html">Image gallery</a></li>
-      <li><a href="02-video.html">Video playback</a></li>
-      <li><a href="03-feedback.html">Feedback form</a></li>
-    </ul>
+    <section class='search'>
+      <div class='container'>
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search images..."
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+    <section class='list'>
+      <div class='container'>
+        <ul class='js-list'></ul>
+      </div>
+    </section>
   </body>
 </html>
