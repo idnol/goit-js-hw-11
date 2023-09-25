@@ -1,10 +1,12 @@
 import axios from 'axios';
 const URL = 'https://pixabay.com/api/';
 
-export async function getImages({key, q, image_type, orientation, safesearch}) {
-  return await axios.get(`${URL}?key=${key}&q=${q}&image_type=${image_type}&orientation=${orientation}&safesearch=${safesearch}`)
-    .then(response => {
-      return response.data.hits;
+export async function getImages(params) {
+  try {
+    return await axios.get(URL, { params }).then(response => {
+      return {hits: response.data.hits, total: response.data.totalHits};
     })
-    .catch(error => console.log(error))
+  } catch (e) {
+    console.log(e)
+  }
 }
