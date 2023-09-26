@@ -43,7 +43,9 @@ load.addEventListener('click', async function() {
   try {
     const response = await getImages(query);
     document.querySelector('.js-list').insertAdjacentHTML('beforeend', response.hits.map(item => markup(item)).join(''));
-    const totalPages = Math.floor(+response.total / +query.per_page);
+    const totalPages = Math.ceil(+response.total / +query.per_page);
+    console.log(totalPages);
+    console.log(query.page);
     if (totalPages === query.page) {
       load.classList.add('display-none');
       document.querySelector('.pagenum').insertAdjacentHTML('beforeend', '<h3>We\'re sorry, but you\'ve reached the end of search results.</h3>')
